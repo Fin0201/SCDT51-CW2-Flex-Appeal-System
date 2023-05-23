@@ -12,6 +12,10 @@ namespace ITS_System.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Class Name")]
+        public string ClassName { get; set; }
+
+        [Required]
         [Display(Name = "Class Date and Time")]
         public DateTime DateTime { get; set; }
 

@@ -3,6 +3,7 @@ using System;
 using ITS_System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITS_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230523102247_classname")]
+    partial class classname
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.16");
@@ -100,10 +102,6 @@ namespace ITS_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ClassName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("TEXT");
 
@@ -113,6 +111,10 @@ namespace ITS_System.Migrations
 
                     b.Property<int>("MaxNumbersOfBooking")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("RoomId")
                         .HasColumnType("INTEGER");
@@ -198,29 +200,29 @@ namespace ITS_System.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1d8091dc-a699-4f4a-89d7-d20fa5b7ca8c",
-                            ConcurrencyStamp = "64596a6f-021b-4681-9e95-232d4ababe54",
+                            Id = "1368ff63-b2e0-4a1d-8f5f-86c4b02e55ac",
+                            ConcurrencyStamp = "afd853fe-c74c-4505-a64f-d06ecf7be935",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "fe514737-a768-4c83-8130-4e9a9757a971",
-                            ConcurrencyStamp = "62a26ebc-2d01-4771-82be-d251298e7c0c",
+                            Id = "c2d419e0-9f40-44a9-9d73-7bf83369bae4",
+                            ConcurrencyStamp = "4247383d-e6ce-4b85-b51c-b4ae3a28f8e1",
                             Name = "Studio_Staff",
                             NormalizedName = "STUDIO_STAFF"
                         },
                         new
                         {
-                            Id = "f7c5f173-446a-4a1b-85d5-45d69311c163",
-                            ConcurrencyStamp = "49898aae-0245-4359-bbdd-23051a62bfd1",
+                            Id = "5af183c5-f41f-4c7a-aade-de966f1e5139",
+                            ConcurrencyStamp = "7e5e302e-c51f-4a2c-b334-4bdbb0ed4371",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "0acbcaf0-709d-4336-8a7d-54287337533a",
-                            ConcurrencyStamp = "441ac009-a80f-4118-91ad-31edebac565b",
+                            Id = "80124d65-aa4b-43c6-8105-e6cb5cf37efa",
+                            ConcurrencyStamp = "24f165c7-efc4-420f-8ad6-7b981825e7ce",
                             Name = "Management_Team",
                             NormalizedName = "MANAGEMENT_TEAM"
                         });
@@ -315,17 +317,17 @@ namespace ITS_System.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "48d19f71-800f-446c-8032-e8ad3f71ff70",
+                            Id = "540d76c7-b138-4bbc-994a-63b2a2f30a18",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e49b340e-7fa2-4ba5-aba3-5bed3fd5884a",
+                            ConcurrencyStamp = "2d824ff9-f54f-4979-9596-a34c2c5bcdc8",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJNeHEbwbaake1AIUAghqo+g3HFl0vkJLpbIhWBpUQKaunfLEU+OOF8UJS0pGkUXqw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ44RkkeGWwsz4kwKLEoOuLkV4RoeIlj3v8HLT8Di8KBuJ0O6zlz7du88aauR8CZUg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fd210a23-8719-48fd-b050-f4fb626b73b3",
+                            SecurityStamp = "8030d8dc-2df9-4f0f-bba1-d06f2ba8d0a3",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -393,8 +395,8 @@ namespace ITS_System.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "48d19f71-800f-446c-8032-e8ad3f71ff70",
-                            RoleId = "1d8091dc-a699-4f4a-89d7-d20fa5b7ca8c"
+                            UserId = "540d76c7-b138-4bbc-994a-63b2a2f30a18",
+                            RoleId = "1368ff63-b2e0-4a1d-8f5f-86c4b02e55ac"
                         });
                 });
 

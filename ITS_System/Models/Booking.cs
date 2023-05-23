@@ -12,8 +12,8 @@ namespace ITS_System.Models
 
         [Required]
         [ForeignKey("ClassId")]
+        [Display(Name = "Class Name")]
         public ClassSchedule Class { get; set; }
-
         public int ClassId { get; set; }
 
         [Required]

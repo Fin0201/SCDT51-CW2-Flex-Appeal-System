@@ -79,7 +79,8 @@ namespace FlexAppealFitness.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ClassSchedule classSchedule, List<int> EquipmentList)
         {
-            if (classSchedule.InstructorId != null &&
+            if (classSchedule.ClassName != null &&
+               classSchedule.InstructorId != null &&
                classSchedule.DateTime != null &&
                classSchedule.RoomId != null &&
                classSchedule.MaxNumbersOfBooking > 0 &&
@@ -152,7 +153,7 @@ namespace FlexAppealFitness.Areas.Admin
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DateTime,InstructorId,MaxNumbersOfBooking,RoomId,Status")] ClassSchedule classSchedule, string[] WaitingList, string[] EquipmentList)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ClassName,DateTime,InstructorId,MaxNumbersOfBooking,RoomId,Status")] ClassSchedule classSchedule, string[] WaitingList, string[] EquipmentList)
         {
             if (id != classSchedule.Id)
             {
@@ -166,6 +167,7 @@ namespace FlexAppealFitness.Areas.Admin
                     .FirstOrDefaultAsync(m => m.Id == id);
 
                 // Update the existing class schedule with the values from the form
+                existingClassSchedule.ClassName = classSchedule.ClassName;
                 existingClassSchedule.DateTime = classSchedule.DateTime;
                 existingClassSchedule.InstructorId = classSchedule.InstructorId;
                 existingClassSchedule.MaxNumbersOfBooking = classSchedule.MaxNumbersOfBooking;
