@@ -1,41 +1,25 @@
-﻿@model ITS_System.Models.Booking
+﻿@model IEnumerable<ITS_System.Models.ClassSchedule>
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Book Class";
 }
 
 <h1>Create</h1>
 
-<h4>Booking</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ClassId" class="control-label"></label>
-                <select asp-for="ClassId" class ="form-control" asp-items="ViewBag.ClassId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+<h4>Book a Class</h4>
+<form asp-action="Index" method="get">
+    <div class="input-group mb-3">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="searchString">
+        <button class="btn btn-info" type="submit">Search</button>
+    </div>
 
-
-            @*<div class="form-group">
-                <label asp-for="TimeStamp" class="control-label"></label>
-                <select asp-for="TimeStamp" class="form-control" asp-items="ViewBag.DateTime"></select>
-                <span asp-validation-for="TimeStamp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control" asp-items="ViewBag.DateTime"></select>
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>*@
+</form>
 
 
 
 
-@*            <div class="d-flex flex-wrap justify-content-between">
+
+<div class="d-flex flex-wrap justify-content-between">
     @foreach (var item in Model)
     {
         <div class="card mb-4">
@@ -51,14 +35,9 @@
             </div>
         </div>
         }
-</div>*@
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
 </div>
 
+@*Search for a class and have buttons to book them*@
 
 
 

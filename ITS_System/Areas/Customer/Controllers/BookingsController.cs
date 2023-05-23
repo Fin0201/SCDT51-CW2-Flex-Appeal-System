@@ -21,10 +21,21 @@ namespace FlexAppealFitness.Areas.Customer.Views
         }
 
         // GET: Customer/Bookings
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Bookings.Include(b => b.Class);
-            return View(await applicationDbContext.ToListAsync());
+            var classSchedules = from c in _context.Schedule
+                                 select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                searchString = searchString.ToLower();
+
+                classSchedules = classSchedules.Where(s => s.Instructor.Email.ToLower().Contains(searchString) ||
+                s.ClassName.ToLower().Contains(searchString) ||
+                s.DateTime.ToString().Contains(searchString));
+            }
+
+            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.ClassName).ToListAsync());
         }
 
         // GET: Customer/Bookings/Details/5
@@ -44,16 +55,6 @@ namespace FlexAppealFitness.Areas.Customer.Views
             }
 
             return View(booking);
-        }
-
-        // GET: Customer/Bookings/Create
-        public IActionResult Create()
-        {
-            ViewData["ClassId"] = new SelectList(_context.Schedule, "Id", "ClassName");
-            ViewData["DateTime"] = new SelectList(_context.Schedule, "Id", "DateTime");
-            ViewData["Status"] = new SelectList(_context.Schedule, "Id", "Status");
-            var classes = _context.Schedule.ToList(); // Works with class display
-            return View();
         }
 
         // POST: Customer/Bookings/Create

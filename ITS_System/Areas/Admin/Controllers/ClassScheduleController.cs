@@ -34,10 +34,10 @@ namespace FlexAppealFitness.Areas.Admin
             var classSchedules = from c in _context.Schedule
                                  select c;
 
-
             if (!String.IsNullOrEmpty(searchString))
             {
                 searchString = searchString.ToLower();
+
                 classSchedules = classSchedules.Where(s => s.Instructor.Email.ToLower().Contains(searchString) ||
                 s.ClassName.ToLower().Contains(searchString) ||
                 s.DateTime.ToString().Contains(searchString));
