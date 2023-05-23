@@ -3,5 +3,46 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to Admin Home</h1>  
-</div>
+    <h1 class="display-4">Welcome to Admin Home</h1>
+    <div class="justify-content-center align-items-center" style="height: 80vh;">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mb-4">
+                <a href="@Url.Action("Index", "RolesManager", new { area = "Admin" })" class="card text-decoration-none text-center">
+                    <div class="card-body bg-info" style="height: 200px;">
+                        <h5 class="card-title text-dark" style="font-size: 24px; line-height: 150px;">Manage Roles</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 mb-4">
+                <a href="@Url.Action("Index", "UserRolesManager", new { area = "Admin" })" class="card text-decoration-none text-center">
+                    <div class="card-body bg-info" style="height: 200px;">
+                        <h5 class="card-title text-dark" style="font-size: 24px; line-height: 150px;">Manage Users</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 mb-4">
+                <a href="@Url.Action("Index", "Room", new { area = "Admin" })" class="card text-decoration-none text-center">
+                    <div class="card-body bg-info" style="height: 200px;">
+                        <h5 class="card-title text-dark" style="font-size: 24px; line-height: 150px;">Manage Rooms</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 mb-4">
+                <a href="@Url.Action("Index", "Equipment", new { area = "Admin" })" class="card text-decoration-none text-center">
+                    <div class="card-body bg-info" style="height: 200px;">
+                        <h5 class="card-title text-dark" style="font-size: 24px; line-height: 150px;">Manage Equipment</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mb-4">
+                <a href="@Url.Action("Index", "ClassSchedule", new { area = "Admin" })" class="card text-decoration-none text-center">
+                    <div class="card-body bg-info" style="height: 200px;">
+                        <h5 class="card-title text-dark" style="font-size: 24px; line-height: 150px;">Manage Classes</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+ </div>
