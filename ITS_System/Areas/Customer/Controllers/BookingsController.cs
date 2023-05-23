@@ -52,6 +52,7 @@ namespace FlexAppealFitness.Areas.Customer.Views
             ViewData["ClassId"] = new SelectList(_context.Schedule, "Id", "ClassName");
             ViewData["DateTime"] = new SelectList(_context.Schedule, "Id", "DateTime");
             ViewData["Status"] = new SelectList(_context.Schedule, "Id", "Status");
+            var classes = _context.Schedule.ToList(); // Works with class display
             return View();
         }
 

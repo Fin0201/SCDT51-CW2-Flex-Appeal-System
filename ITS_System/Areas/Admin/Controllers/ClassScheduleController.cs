@@ -34,12 +34,16 @@ namespace FlexAppealFitness.Areas.Admin
             var classSchedules = from c in _context.Schedule
                                  select c;
 
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                classSchedules = classSchedules.Where(s => s.Instructor.Email.Contains(searchString) || s.DateTime.ToString().Contains(searchString));
+                searchString = searchString.ToLower();
+                classSchedules = classSchedules.Where(s => s.Instructor.Email.ToLower().Contains(searchString) ||
+                s.ClassName.ToLower().Contains(searchString) ||
+                s.DateTime.ToString().Contains(searchString));
             }
 
-            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.DateTime).ToListAsync());
+            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.ClassName).ToListAsync());
         }
 
         // GET: Admin/ClassSchedule/Details/5
