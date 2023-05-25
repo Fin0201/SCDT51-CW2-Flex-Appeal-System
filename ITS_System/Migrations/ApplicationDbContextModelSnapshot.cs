@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ITS_System.Migrations
+namespace FlexAppealFitness.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -98,6 +98,9 @@ namespace ITS_System.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AvailableSpaces")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ClassName")
@@ -198,29 +201,29 @@ namespace ITS_System.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1d8091dc-a699-4f4a-89d7-d20fa5b7ca8c",
-                            ConcurrencyStamp = "64596a6f-021b-4681-9e95-232d4ababe54",
+                            Id = "60893787-635c-4122-8f9a-9c548e63d232",
+                            ConcurrencyStamp = "304f8e9a-8b32-47aa-9315-1e757dd4664a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "fe514737-a768-4c83-8130-4e9a9757a971",
-                            ConcurrencyStamp = "62a26ebc-2d01-4771-82be-d251298e7c0c",
+                            Id = "0b99ea8f-84af-4ee1-b464-aa1582bf4d62",
+                            ConcurrencyStamp = "f6f535fc-19b0-4433-885f-362da43e25b3",
                             Name = "Studio_Staff",
                             NormalizedName = "STUDIO_STAFF"
                         },
                         new
                         {
-                            Id = "f7c5f173-446a-4a1b-85d5-45d69311c163",
-                            ConcurrencyStamp = "49898aae-0245-4359-bbdd-23051a62bfd1",
+                            Id = "8bafc139-b810-4a93-aa4a-745bc8963a47",
+                            ConcurrencyStamp = "326faf4c-5fc9-4ee7-a10b-53c954a67d6f",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "0acbcaf0-709d-4336-8a7d-54287337533a",
-                            ConcurrencyStamp = "441ac009-a80f-4118-91ad-31edebac565b",
+                            Id = "a1945e1d-dff3-4fc2-a711-c88553f56f75",
+                            ConcurrencyStamp = "fec1b0c4-4d4e-41af-9073-38997adcaf10",
                             Name = "Management_Team",
                             NormalizedName = "MANAGEMENT_TEAM"
                         });
@@ -315,17 +318,17 @@ namespace ITS_System.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "48d19f71-800f-446c-8032-e8ad3f71ff70",
+                            Id = "b65ccc48-73b4-4be3-8ff6-69928b275b9f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e49b340e-7fa2-4ba5-aba3-5bed3fd5884a",
+                            ConcurrencyStamp = "b1674262-aa0a-45c8-bc38-f4b9fe9ccb07",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJNeHEbwbaake1AIUAghqo+g3HFl0vkJLpbIhWBpUQKaunfLEU+OOF8UJS0pGkUXqw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHr5sXpGl2eSLzCEdAd5+tojYNZ0ABgurNcK5cBlfnee2AiGGppu8rryRE4enQ0aYg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fd210a23-8719-48fd-b050-f4fb626b73b3",
+                            SecurityStamp = "1e43fa44-d32a-4114-ad38-296964e4993b",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -393,8 +396,8 @@ namespace ITS_System.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "48d19f71-800f-446c-8032-e8ad3f71ff70",
-                            RoleId = "1d8091dc-a699-4f4a-89d7-d20fa5b7ca8c"
+                            UserId = "b65ccc48-73b4-4be3-8ff6-69928b275b9f",
+                            RoleId = "60893787-635c-4122-8f9a-9c548e63d232"
                         });
                 });
 

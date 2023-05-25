@@ -10,14 +10,17 @@ namespace ITS_System.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         [ForeignKey("ClassId")]
-        [Display(Name = "Class Name")]
         public ClassSchedule Class { get; set; }
-        public int ClassId { get; set; }
 
         [Required]
+        public int ClassId { get; set; }
+
+        [ForeignKey("AttendeeId")]
         public IdentityUser Attendee { get; set; }
+
+        [Required]
+        public string AttendeeId { get; set; }
 
         [Required]
         public DateTime TimeStamp { get; set; }

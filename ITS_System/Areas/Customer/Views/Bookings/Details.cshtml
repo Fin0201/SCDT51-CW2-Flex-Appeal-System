@@ -14,7 +14,13 @@
             @Html.DisplayNameFor(model => model.Class)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Class.InstructorId)
+            @Html.DisplayFor(model => model.Class.ClassName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Attendee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Attendee.Id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TimeStamp)
