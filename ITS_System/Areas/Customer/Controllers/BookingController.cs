@@ -28,7 +28,7 @@ namespace FlexAppealFitness.Areas.Customer.Controllers
                 classSchedules = classSchedules.Where(s => s.Instructor.Email.Contains(searchString) || s.DateTime.ToString().Contains(searchString));
             }
 
-            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.DateTime).ToListAsync());
+            return View(await classSchedules.Include("Instructor").Include("Room").Include("Attendees").OrderBy(s => s.DateTime).ToListAsync());
         }
 
         public async Task<IActionResult> Book(int Id)
@@ -48,7 +48,7 @@ namespace FlexAppealFitness.Areas.Customer.Controllers
             book.Status = Enums.BookingStatus.Active;
             book.Attendee = currentUser;
 
-            var currentClass = await _context.Schedule.FindAsync(Id);
+            var currentClass = await _context.Schedule.Include(s => s.Attendees).Where(s => s.Id == Id).FirstOrDefaultAsync();
 
             if (currentClass == null)
             {
@@ -69,10 +69,9 @@ namespace FlexAppealFitness.Areas.Customer.Controllers
             _context.Schedule.Update(currentClass);
 
             await _context.SaveChangesAsync();
+            //redirect to Bookings Controller
+            return RedirectToAction("Index", "Bookings");
 
-
-
-            return RedirectToAction(nameof(Index));
         }
 
 
