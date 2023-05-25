@@ -13,7 +13,7 @@ namespace ITS_System.Models
 
         [Required]
         [Display(Name = "Class Name")]
-        public string ClassName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [Display(Name = "Class Date and Time")]
@@ -29,8 +29,9 @@ namespace ITS_System.Models
         [Required]
         [Display(Name = "Max Number of Bookings")]
         public int MaxNumbersOfBooking { get; set; }
+
         public int AvailableSpaces { get; set; }
-      
+
         [ForeignKey("RoomId")]
         public Room Room { get; set; }
 
@@ -40,9 +41,9 @@ namespace ITS_System.Models
 
         public ClassStatus Status { get; set; }
 
-        public virtual List<WaitingListEntry> WaitingList { get; set; }
-        public virtual List<Booking> Attendees { get; set; }
-        public virtual List<EquipmentListEntry> EquipmentList { get; set; }
+        public virtual List<WaitingListEntry> WaitingList { get; set; } = new List<WaitingListEntry>();
+        public virtual List<Booking> Attendees { get; set; } = new List<Booking>();
+        public virtual List<EquipmentListEntry> EquipmentList { get; set; } = new List<EquipmentListEntry>();
 
     }
 }

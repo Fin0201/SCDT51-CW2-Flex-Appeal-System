@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using ITS_System.Data;
+﻿using ITS_System.Data;
 using ITS_System.Models;
-using FlexAppealFitness.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace FlexAppealFitness.Areas.Customer.Views
+namespace FlexAppealFitness.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class BookingController : Controller
@@ -26,7 +18,6 @@ namespace FlexAppealFitness.Areas.Customer.Views
             _userManager = userManager;
         }
 
-        // GET: Customer/Bookings
         public async Task<IActionResult> Index(string searchString)
         {
             var classSchedules = from c in _context.Schedule
@@ -34,13 +25,10 @@ namespace FlexAppealFitness.Areas.Customer.Views
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                searchString = searchString.ToLower();
-
-                classSchedules = classSchedules.Where(s => s.Instructor.Email.ToLower().Contains(searchString) ||
-                s.ClassName.ToLower().Contains(searchString) ||
-                s.DateTime.ToString().Contains(searchString));
+                classSchedules = classSchedules.Where(s => s.Instructor.Email.Contains(searchString) || s.DateTime.ToString().Contains(searchString));
             }
-            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.ClassName).ToListAsync());
+
+            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.DateTime).ToListAsync());
         }
 
         public async Task<IActionResult> Book(int Id)
@@ -67,6 +55,13 @@ namespace FlexAppealFitness.Areas.Customer.Views
                 return NotFound();
             }
 
+            bool doubleBook = currentClass.Attendees.Any(a => a.AttendeeId == currentUser.Id);
+
+            if (doubleBook)
+            {
+                return RedirectToAction("Index", "Bookings");
+            }
+
             book.Class = currentClass;
 
             currentClass.Attendees.Add(book);
@@ -75,8 +70,11 @@ namespace FlexAppealFitness.Areas.Customer.Views
 
             await _context.SaveChangesAsync();
 
+
+
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }
-        

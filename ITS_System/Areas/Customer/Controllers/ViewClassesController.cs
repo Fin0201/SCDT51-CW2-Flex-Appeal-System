@@ -44,10 +44,10 @@ namespace ITS_System.Areas.Customer.Controllers
                 searchString = searchString.ToLower();
 
                 classSchedules = classSchedules.Where(s => s.Instructor.Email.ToLower().Contains(searchString) ||
-                s.ClassName.ToLower().Contains(searchString) ||
+                s.Name.ToLower().Contains(searchString) ||
                 s.DateTime.ToString().Contains(searchString));
             }
-            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.ClassName).ToListAsync());
+            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.Name).ToListAsync());
         }
     }
 }

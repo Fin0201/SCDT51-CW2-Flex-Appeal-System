@@ -39,11 +39,11 @@ namespace FlexAppealFitness.Areas.Admin
                 searchString = searchString.ToLower();
 
                 classSchedules = classSchedules.Where(s => s.Instructor.Email.ToLower().Contains(searchString) ||
-                s.ClassName.ToLower().Contains(searchString) ||
+                s.Name.ToLower().Contains(searchString) ||
                 s.DateTime.ToString().Contains(searchString));
             }
 
-            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.ClassName).ToListAsync());
+            return View(await classSchedules.Include("Instructor").Include("Room").OrderBy(s => s.Name).ToListAsync());
         }
 
         // GET: Admin/ClassSchedule/Details/5
@@ -83,7 +83,7 @@ namespace FlexAppealFitness.Areas.Admin
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ClassSchedule classSchedule, List<int> EquipmentList)
         {
-            if (classSchedule.ClassName != null &&
+            if (classSchedule.Name != null &&
                classSchedule.InstructorId != null &&
                classSchedule.DateTime != null &&
                classSchedule.RoomId != null &&
@@ -171,7 +171,7 @@ namespace FlexAppealFitness.Areas.Admin
                     .FirstOrDefaultAsync(m => m.Id == id);
 
                 // Update the existing class schedule with the values from the form
-                existingClassSchedule.ClassName = classSchedule.ClassName;
+                existingClassSchedule.Name = classSchedule.Name;
                 existingClassSchedule.DateTime = classSchedule.DateTime;
                 existingClassSchedule.InstructorId = classSchedule.InstructorId;
                 existingClassSchedule.MaxNumbersOfBooking = classSchedule.MaxNumbersOfBooking;
