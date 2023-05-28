@@ -69,7 +69,7 @@ namespace ITS_System.Data
             );
 
 
-             builder.Entity<IdentityRole>().HasData(
+            builder.Entity<IdentityRole>().HasData(
                  new IdentityRole()
                  {
                      Id = Guid.NewGuid().ToString(),
@@ -80,6 +80,17 @@ namespace ITS_System.Data
                  }
              );
 
+
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "Instructor",
+                    NormalizedName = "Instructor".ToUpper(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString()
+
+                }
+            );
         }
 
         private void SeedAdmin(ModelBuilder builder)
@@ -107,11 +118,6 @@ namespace ITS_System.Data
                     RoleId = AdminRoleId,
                     UserId = AdminId
                 });
-
-
         }
-
-
-
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlexAppealFitness.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230525141731_init")]
+    [Migration("20230528123816_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -203,31 +203,38 @@ namespace FlexAppealFitness.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2f13ac74-55fa-4acb-aadc-af06358c86bf",
-                            ConcurrencyStamp = "d684ae8f-e609-4e07-80aa-798c48fd32e8",
+                            Id = "85ce7d1e-f7f8-45ea-b1ae-5bb754b5876e",
+                            ConcurrencyStamp = "add91970-df82-496e-86cf-56e0075dcd37",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "179a5793-25fe-4c22-a29f-2afd63d7315e",
-                            ConcurrencyStamp = "cdf283bd-e5de-44a6-98ff-f326b7c12e3c",
+                            Id = "cd290088-6f1b-4c32-a426-0ee418a5c1d0",
+                            ConcurrencyStamp = "2745afbb-3604-4bc0-a27a-10ce2e0ca1c4",
                             Name = "Studio_Staff",
                             NormalizedName = "STUDIO_STAFF"
                         },
                         new
                         {
-                            Id = "8615382d-4754-4b09-b08d-f1e7a2e7eca6",
-                            ConcurrencyStamp = "7aaff541-b5b0-4444-a142-8cc3d0672077",
+                            Id = "5703e0a9-8e8f-4843-bdd1-76939037dfe2",
+                            ConcurrencyStamp = "4ff3a009-f934-43d0-8f20-2220bafe560a",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "203ee411-e08d-485a-9efe-ec2d1b354b36",
-                            ConcurrencyStamp = "efa65938-ce78-466f-ae68-57d707e839a5",
+                            Id = "3a94a300-946a-4158-bae8-05983ccdb686",
+                            ConcurrencyStamp = "e15e4324-4dab-4ffc-adf9-ff5212473d9f",
                             Name = "Management_Team",
                             NormalizedName = "MANAGEMENT_TEAM"
+                        },
+                        new
+                        {
+                            Id = "701694c8-c7a3-4cb4-965d-18fb3c70160c",
+                            ConcurrencyStamp = "216055bb-8353-429f-b5ae-81f99544e47e",
+                            Name = "Instructor",
+                            NormalizedName = "INSTRUCTOR"
                         });
                 });
 
@@ -320,17 +327,17 @@ namespace FlexAppealFitness.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f4e40a7c-8a58-4181-b9fc-b253c3fb38e1",
+                            Id = "53acd041-4b3b-47e4-82af-85739d5a387b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d711bf7c-a3e3-4f2c-aa45-86a13801b956",
+                            ConcurrencyStamp = "46f1db5a-6e8a-4584-b070-3e74b587c2ee",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMBSmLGRBjYjV3y9WWQMVcMpm21tzEXUWGFf+kGfYFwjlzNf9HtG1JVP/PX3X/34kg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJPscTGLdn7gmePlGINBrKfWcutex6S4JdM4TCfEFBfOLmDnyUBx8ZgIKXvEwwmtmg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "65f93c35-2463-4236-b1a4-bf63ca91b696",
+                            SecurityStamp = "ed3c3d05-dcb2-412e-90cd-fb34a271fcbc",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -398,8 +405,8 @@ namespace FlexAppealFitness.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f4e40a7c-8a58-4181-b9fc-b253c3fb38e1",
-                            RoleId = "2f13ac74-55fa-4acb-aadc-af06358c86bf"
+                            UserId = "53acd041-4b3b-47e4-82af-85739d5a387b",
+                            RoleId = "85ce7d1e-f7f8-45ea-b1ae-5bb754b5876e"
                         });
                 });
 
