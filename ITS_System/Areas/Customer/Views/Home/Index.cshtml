@@ -4,19 +4,19 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Customer Home</h1>
-    <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
-        <div class="row">
+    <div style="height:60vh; margin-top:20vh;">
+        <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-6 mb-4">
-                <a href="@Url.Action("Index", "Booking", new { area = "Customer" })" class="card text-decoration-none text-center">
-                    <div class="card-body bg-info" style="height: 200px;">
-                        <h5 class="card-title text-dark" style="font-size: 24px; line-height: 150px;">Book a Class</h5>
+                <a href="@Url.Action("Index", "Booking", new { area = "Customer" })" class="card text-bg-info text-decoration-none text-center">
+                    <div class="card-body" style="height: 200px;">
+                        <h5 class="card-title" style="font-size: 24px; line-height: 150px;">Book a Class</h5>
                     </div>
                 </a>
             </div>
             <div class="col-md-6 mb-4">
-                <a href="@Url.Action("Index", "Bookings", new { area = "Customer" })" class="card text-decoration-none text-center">
-                    <div class="card-body bg-info" style="height: 200px;">
-                        <h5 class="card-title text-dark" style="font-size: 24px; line-height: 150px;">Manage Bookings</h5>
+                <a href="@Url.Action("Index", "Bookings", new { area = "Customer" })" class="card text-bg-info text-decoration-none text-center">
+                    <div class="card-body" style="height: 200px;">
+                        <h5 class="card-title" style="font-size: 24px; line-height: 150px;">Manage Bookings</h5>
                     </div>
                 </a>
             </div>
