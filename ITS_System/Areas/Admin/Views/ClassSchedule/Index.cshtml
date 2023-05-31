@@ -14,17 +14,17 @@
 
 </form>
 
-
 <div class="d-flex flex-wrap justify-content-between">
     @foreach (var item in Model)
     {
         <div class="card mb-4">
             <div class="card-body">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                <h5 class="card-title text-center mb-3">@Html.DisplayFor(modelItem => item.Name)</h5>
                 <p class="card-text">
-                    <strong>Instructor:</strong> @Html.DisplayFor(modelItem => item.DateTime) <br />
+                    <strong>Time and Date:</strong> @Html.DisplayFor(modelItem => item.DateTime) <br />
                     <strong>Instructor:</strong> @Html.DisplayFor(modelItem => item.Instructor.Email) <br />
                     <strong>Max Booking:</strong> @Html.DisplayFor(modelItem => item.MaxNumbersOfBooking) <br />
+                    <strong>Spaces Available:</strong> @Html.DisplayFor(modelItem => item.MaxNumbersOfBooking) <br />
                     <strong>Room:</strong> @Html.DisplayFor(modelItem => item.Room.Name) <br />
                     <strong>Status:</strong> @Html.DisplayFor(modelItem => item.Status)
                 </p>
