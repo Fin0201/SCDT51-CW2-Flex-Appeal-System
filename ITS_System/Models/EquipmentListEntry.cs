@@ -10,7 +10,7 @@ namespace FlexAppealFitness.Models
         public int Id { get; set; }
 
         [Required]
-        public Equipment Equipment { get; set; }
+        public Equipment Equipment { get; set; } // Gets the equipment fro mthe equipment model
 
         [Required]
         public DateTime AddedOn { get; set; }

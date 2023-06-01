@@ -19,9 +19,9 @@ namespace ITS_System.Areas.Admin.Controllers
             _userManager = userManager;
         }
 
+        // GET: Admin/UserRolesManager
         public async Task<IActionResult> Index()
         {
-
             var users = await _userManager.Users.ToListAsync();
             var VMList = new List<UserRolesViewModel>();
 
@@ -34,10 +34,10 @@ namespace ITS_System.Areas.Admin.Controllers
                 };
                 VMList.Add(vm);
             }
-
             return View(VMList);
         }
 
+        // Deletes the user role
         public async Task<IActionResult> Delete(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -48,7 +48,6 @@ namespace ITS_System.Areas.Admin.Controllers
                 await _userManager.RemoveFromRolesAsync(user, roles);
                 await _userManager.DeleteAsync(user);
             }
-
             return RedirectToAction(nameof(Index));
         }
 
@@ -71,13 +70,11 @@ namespace ITS_System.Areas.Admin.Controllers
                     vmList.Add(vm);
                 }
                 return View(vmList);
-
             }
-
             return RedirectToAction(nameof(Index));
-
         }
 
+        // Manages the user roles
         [HttpPost]
         public async Task<IActionResult> Manage(List<ManageUserRolesViewModel> model)
         {
@@ -91,10 +88,7 @@ namespace ITS_System.Areas.Admin.Controllers
                     var result = await _userManager.RemoveFromRolesAsync(user, roles);
                     result = await _userManager.AddToRolesAsync(user, model.Where(x => x.InRole).Select(y => y.Role.Name));
                 }
-
-               
             }
-
             return RedirectToAction("Index");
         }
     }

@@ -6,6 +6,8 @@
     <h1 class="display-4">Welcome to the Admin Home</h1>
     <div style="height:70vh; margin-top:10vh;">
         <div class="row d-flex justify-content-center align-items-center">
+
+            @*Creates a card for each admin page. Clicking on the card will redirect to that page*@
             <div class="col-md-6 mb-4">
                 <a href="@Url.Action("Index", "RolesManager", new { area = "Admin" })" class="card text-bg-info text-decoration-none text-center">
                     <div class="card-body" style="height: 200px;">

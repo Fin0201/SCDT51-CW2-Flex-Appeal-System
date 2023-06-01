@@ -38,6 +38,7 @@ namespace FlexAppealFitness.Areas.Admin
             {
                 searchString = searchString.ToLower();
 
+                // When the user uses the search bar, it will search for the instructor email, the class name, and the class date
                 classSchedules = classSchedules.Where(s => s.Instructor.Email.ToLower().Contains(searchString) ||
                 s.Name.ToLower().Contains(searchString) ||
                 s.DateTime.ToString().Contains(searchString));

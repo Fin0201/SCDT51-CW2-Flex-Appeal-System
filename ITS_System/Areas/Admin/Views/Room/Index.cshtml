@@ -9,6 +9,8 @@
 <p>
     <a asp-action="Create" class="btn btn-success">Create New Room</a>
 </p>
+
+@*Creates the table headings*@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -25,6 +27,8 @@
         </tr>
     </thead>
     <tbody>
+
+@*Loops through each item in the database and displays them seperately to the user*@
 @foreach (var item in Model) {
         <tr>
             <td>

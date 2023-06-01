@@ -12,7 +12,5 @@ namespace ITS_System.Models
 
         [Required]
         public string Description { get; set; }
-
-
     }
 }

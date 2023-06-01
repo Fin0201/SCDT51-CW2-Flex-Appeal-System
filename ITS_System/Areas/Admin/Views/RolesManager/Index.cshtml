@@ -12,7 +12,8 @@
         {
             <div class="alert alert-danger mx-2">@ViewBag.Message</div>
         }
-
+    
+    @*Creates a text field and button prompting the user to enter the role name*@
     <form method="post" asp-action="AddRole" asp-controller="RolesManager">
         <div class="input-group">
             <input name="roleName" class="form-control w-25" />
@@ -22,6 +23,7 @@
         </div>
     </form>
 
+    @*Creates the table headings*@
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
@@ -30,6 +32,8 @@
             </tr>
         </thead>
         <tbody>
+
+            @*Loops through each item in the database and displays them seperately to the user*@
             @foreach (var role in Model)
             {
                 <tr>

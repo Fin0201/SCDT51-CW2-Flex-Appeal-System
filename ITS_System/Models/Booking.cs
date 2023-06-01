@@ -20,7 +20,7 @@ namespace ITS_System.Models
         public IdentityUser Attendee { get; set; }
 
         [Required]
-        public string AttendeeId { get; set; }
+        public string AttendeeId { get; set; } // This will store the user account attending the class
 
         [Required]
         public DateTime TimeStamp { get; set; }

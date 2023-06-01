@@ -21,7 +21,7 @@ namespace ITS_System.Models
 
         [Required]
         [Display(Name = "Instructor")]
-        public string InstructorId { get; set; }
+        public string InstructorId { get; set; } // Gets the name of the instructor from the instructor model
 
         [ForeignKey("InstructorId")]
         public IdentityUser Instructor { get; set; }
@@ -33,7 +33,7 @@ namespace ITS_System.Models
         public int AvailableSpaces { get; set; }
 
         [ForeignKey("RoomId")]
-        public Room Room { get; set; }
+        public Room Room { get; set; } // Gets the RoomId from the room model
 
         [Required]
         [Display(Name = "Room")]

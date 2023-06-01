@@ -15,12 +15,15 @@ namespace ITS_System.Areas.Admin.Controllers
         {
             _roleManager = roleManager;
         }
+
+        // GET: Admin/RolesManager
         public async Task<IActionResult> Index()
         {
             var roles = await _roleManager.Roles.ToListAsync();
             return View(roles);
         }
 
+        // Adds a role to the database
         [HttpPost]
         public async Task<IActionResult> AddRole(string roleName)
         {
@@ -31,6 +34,7 @@ namespace ITS_System.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Deletes a role from the database
         [HttpGet]
         public async Task<IActionResult> DeleteRole(string Id)
         {
