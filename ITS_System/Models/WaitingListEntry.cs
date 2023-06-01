@@ -9,7 +9,7 @@ namespace FlexAppealFitness.Models
         public int Id { get; set; }
 
         [Required]
-        public IdentityUser Customer { get; set; }
+        public IdentityUser Customer { get; set; } // Gets the customer account
 
         [Required]
         public DateTime AddedOn { get; set; }

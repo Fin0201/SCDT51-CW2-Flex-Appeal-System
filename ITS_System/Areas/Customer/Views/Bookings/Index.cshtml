@@ -7,9 +7,10 @@
 <h1>My Bookings</h1>
 
 
-@*Displays a table containing the booking details*@
+@*Displays all classes*@
 <div class="d-flex flex-wrap justify-content-between">
-    @foreach (var item in Model) {
+    @foreach (var item in Model) // Loops through each booking and displays each item in seperate cards
+    {
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title text-center mb-3">@Html.DisplayFor(modelItem => item.Class.Name)</h5>

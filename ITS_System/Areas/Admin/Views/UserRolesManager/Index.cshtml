@@ -9,6 +9,7 @@
     <h1 class="display-4">User Roles Manager</h1>
 </div>
 
+@*Creates the table headings*@
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
@@ -20,7 +21,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var user in Model)
+
+       @*Loops through each item in the database and displays them seperately to the user*@
+       @foreach (var user in Model)
        {
            <tr>
                <td>@user.User.Id</td>

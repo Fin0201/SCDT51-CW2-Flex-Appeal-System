@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-4">
 
-        @*Displays a form asking the user to re-enter all information*@
+        @*Displays a form asking the user to re-enter all relevant information*@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -44,6 +44,6 @@
 
 @section Scripts {
     @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-}
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
