@@ -6,16 +6,17 @@
 
 <h1>Book a class</h1>
 
+@*Implements the search bar*@
 <form asp-action="Index" method="get">
     <div class="input-group mb-3">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="searchString">
         <button class="btn btn-info" type="submit">Search</button>
     </div>
-
 </form>
 
+@*Displays all classes*@
 <div class="d-flex flex-wrap justify-content-between">
-    @foreach (var item in Model)
+    @foreach (var item in Model) // Loops through each item and then displays each item in seperate cards
     {
         <div class="card mb-4">
             <div class="card-body">
@@ -29,7 +30,7 @@
                     <strong>Status:</strong> @Html.DisplayFor(modelItem => item.Status)
                 </p>
                 <div class="d-flex justify-content-between">
-                    <a class="btn btn-primary w-100" asp-action="Book" asp-route-id="@item.Id">Book Class</a>       
+                    <a class="btn btn-primary w-100" asp-action="Book" asp-route-id="@item.Id">Book Class</a> <!--Creates a button that will active the "Book" function in the booking controller-->
                 </div>
             </div>
         </div>

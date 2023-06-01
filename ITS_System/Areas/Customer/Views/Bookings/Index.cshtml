@@ -7,37 +7,20 @@
 <h1>My Bookings</h1>
 
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Class.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TimeStamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Class.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeStamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-danger btn">Cancel Booking</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+@*Displays a table containing the booking details*@
+<div class="d-flex flex-wrap justify-content-between">
+    @foreach (var item in Model) {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title text-center mb-3">@Html.DisplayFor(modelItem => item.Class.Name)</h5>
+                <p class="card-text">
+                    <strong>Time and Date:</strong> @Html.DisplayFor(modelItem => item.TimeStamp) <br />
+                    <strong>Status:</strong> @Html.DisplayFor(modelItem => item.Status)
+                </p>
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-danger btn w-100">Cancel Booking</a> @*Creates a button that will delete the booking*@
+                </div>
+            </div>
+        </div>
+    }
+</div>
